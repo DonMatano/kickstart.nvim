@@ -452,7 +452,14 @@ require('lazy').setup({
       end, { desc = '[S]earch [N]eovim files' })
     end,
   },
-
+  -- vim
+  --   .api
+  --   .nvim_create_autocmd('BufWritePre', {
+  --     pattern = { '*.zig', '*.zon' },
+  --     callback = function(ev)
+  --       vim.lsp.buf.format()
+  --     end,
+  --   })
   -- LSP Plugins
   {
     -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
@@ -642,6 +649,32 @@ require('lazy').setup({
         -- But for many setups, the LSP (`ts_ls`) will work just fine
         -- ts_ls = {},
         --
+        zls = {
+          -- omit the following line if `zls` is in your PATH
+          -- cmd = { '$HOME/.zvm/bin/zls' },
+          -- There are two ways to set config options:
+          --   - edit your `zls.json` that applies to any editor that uses ZLS
+          --   - set in-editor config options with the `settings` field below.
+          --
+          -- Further information on how to configure ZLS:
+          -- https://zigtools.org/zls/configure/
+          settings = {
+            zls = {
+              -- Whether to enable build-on-save diagnostics
+              --
+              -- Further information about build-on save:
+              -- https://zigtools.org/zls/guides/build-on-save/
+              -- enable_build_on_save = true,
+
+              -- Neovim already provides basic syntax highlighting
+              semantic_tokens = 'partial',
+
+              -- omit the following line if `zig` is in your PATH
+              -- zig_exe_path = { '$HOME/.zvm/bin/zig' },
+              -- zig_exe_path = '/path/to/zig_executable',
+            },
+          },
+        },
 
         lua_ls = {
           -- cmd = {...},
