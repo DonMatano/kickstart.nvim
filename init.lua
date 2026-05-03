@@ -92,8 +92,8 @@ vim.g.maplocalleader = ' '
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
+-- vim.g.loaded_netrw = 1
+-- vim.g.loaded_netrwPlugin = 1
 
 -- [[ Setting options ]]
 -- See `:help vim.o`
@@ -271,6 +271,7 @@ vim.api.nvim_create_autocmd('BufWritePre', {
 
 vim.lsp.config['zls'] = {
   -- Set to 'zls' if `zls` is in your PATH
+  -- cmd = { '$HOME/.zvm/bin/zls' },
   cmd = { 'zls' },
   filetypes = { 'zig' },
   root_markers = { 'build.zig' },
@@ -286,7 +287,7 @@ vim.lsp.config['zls'] = {
       --
       -- Further information about build-on save:
       -- https://zigtools.org/zls/guides/build-on-save/
-      -- enable_build_on_save = true,
+      enable_build_on_save = true,
 
       -- omit the following line if `zig` is in your PATH
       -- zig_exe_path = '~/.zvm/bin/zig'
