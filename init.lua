@@ -295,6 +295,32 @@ vim.lsp.config['zls'] = {
   },
 }
 vim.lsp.enable('zls')
+
+vim.lsp.config('slangd', {
+  settings = {
+    slang = {
+      predefinedMacros = {"MY_VALUE_MACRO=1"},
+      inlayHints = {
+        deducedTypes = true,
+        parameterNames = true,
+      }
+    }
+  }
+})
+vim.lsp.enable('slangd')
+
+-- vim.lsp.config("slang-server", {
+--   cmd = { "slang-server" },
+--   root_markers = { ".git", ".slang" },
+--   filetypes = {
+--     "systemverilog",
+--     "verilog",
+--     -- "slang",
+--     "shaderslang",
+--   },
+-- })
+--
+-- vim.lsp.enable("slang-server")
 -- [[ Configure and install plugins ]]
 --
 --  To check the current status of your plugins, run
